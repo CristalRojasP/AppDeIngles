@@ -76,6 +76,17 @@ def abrir_ventana_examen():
     indice = 0
     pregunta_actual = banco_a1[indice]
 
+
+    enunciado_actual = pregunta_actual["texto"]
+
+    pregunta_label = tk.Label(ventana_2, text=enunciado_actual, font=("Arial", 12), wraplength=350, justify="center")
+    pregunta_label.pack(pady=10)
+
+    for opcion in pregunta_actual["opciones"]:
+        # Creamos un botón por cada opción disponible en la pregunta
+        boton_opcion = tk.Button(ventana_2, text=opcion, width=35, command=lambda op=opcion: evaluar_respuesta(op))
+        boton_opcion.pack(pady=5)
+
 #creaciones de widgets
     titulo = tk.Label(ventana_2, text="¡Bienvenido al Test de Nivelación!", font=("Arial", 14, "bold"))
 titulo.pack(pady=15)
